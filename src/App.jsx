@@ -5,7 +5,7 @@ import Products from './components/Products'
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [product, setProduct] = useState(""); 
+  const [product, setProduct] = useState("");
 
 
   async function getAllProducts() {
@@ -15,7 +15,7 @@ function App() {
 
       setProducts(data.products);
     } catch (error) {
-      console.log("Erro:",error);
+      console.log("Error:",error);
     }
   }
 

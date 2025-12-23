@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import SearchBar from './components/SearchBar'
-import Products from './components/Products'
-
 function App() {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState("");
@@ -26,7 +23,15 @@ function App() {
   return (
     <div className='main-div lato-regular'>
         <input type="text" placeholder='Search product...' onChange={(e) => setProduct(e.target.value)} />
-        <Products products={products} />
+          <div className='productContainer'>
+          {products.map((product) =>
+              <div className='productDiv' key={product.id}>
+                  <img src={`${product.thumbnail}`} alt="" />
+                  <h4>{product.title}</h4>
+                  <p>${product.price}</p>
+                </div>
+            )}
+        </div>
     </div>
   )
 }

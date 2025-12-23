@@ -126,7 +126,13 @@ function App() {
                   <p>${product.price}</p>
                   <div>
                     <button onClick={() => removeLiked(product.id)} id="likeBtn">{likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' }</button>
-                    <button id="addToCartBtn">Add to cart</button>
+                    <button id="addToCartBtn" onClick={() => {
+                      if (!cartProducts.find(prod => prod.id === product.id)) {
+                        addToCart(product.id)
+                      } else {
+                        removeFromCart(product.id);
+                      }
+                    }}>{cartProducts.find(prod => prod.id === product.id) ? 'Remove from cart' : 'Add to cart' }</button>
                   </div>
                 </div>
             )}
@@ -144,7 +150,13 @@ function App() {
                   <h4>{product.title}</h4>
                   <p>${product.price}</p>
                   <div>
-                    <button onClick={() => removeLiked(product.id)} id="likeBtn">{likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' }</button>
+                    <button onClick={() => {
+                      if (!likedProducts.find(prod => prod.id === product.id)) {
+                        addLiked(product.id)
+                      } else {
+                        removeLiked(product.id);
+                      }
+                    }} id="likeBtn">{likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' }</button>
                     <button onClick={() => removeFromCart(product.id)} id="addToCartBtn">{cartProducts.find(prod => prod.id === product.id) ? 'Remove from cart' : 'Add to cart' }</button>
                   </div>
                 </div>

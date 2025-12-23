@@ -158,3 +158,12 @@ input {
   width: 100%;
   gap: 1rem;
 }
+
+.likedDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}

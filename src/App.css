@@ -97,3 +97,64 @@ body {
 input {
   padding: 1rem;
 }
+
+#likeBtn {
+  background: none;
+  border: 1px solid red;
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}
+
+#likeBtn:hover {
+  cursor: pointer;
+  background: none;
+  border: 1px solid red;
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
+  color: white;
+  background-color: red;
+}
+
+#addToCartBtn {
+  background: none;
+  border: 1px solid limegreen;
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}
+
+#addToCartBtn:hover {
+  cursor: pointer;
+  background: none;
+  border: 1px solid limegreen;
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
+  color: white;
+  background-color: limegreen;
+}
+
+.productDiv div {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar span:hover {
+  cursor: pointer;
+}
+
+.showAllDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}

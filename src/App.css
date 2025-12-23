@@ -73,6 +73,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
 .productContainer {
@@ -91,4 +92,8 @@ body {
   border-radius: 20px;
   padding: 2rem;
   gap: 1rem;
+}
+
+input {
+  padding: 1rem;
 }

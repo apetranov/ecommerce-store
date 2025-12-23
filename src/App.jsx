@@ -5,10 +5,12 @@ import Products from './components/Products'
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState(""); 
+
 
   async function getAllProducts() {
     try {
-      const response = await fetch('https://dummyjson.com/products');
+      const response = await fetch(product ? `https://dummyjson.com/products/search?q=${product}` : 'https://dummyjson.com/products');
       const data = await response.json();
 
       setProducts(data.products);
@@ -19,11 +21,11 @@ function App() {
 
   useEffect(() => {
     getAllProducts();
-  }, [])
+  }, [product])
 
   return (
     <div className='main-div lato-regular'>
-        <SearchBar />
+        <input type="text" placeholder='Search product...' onChange={(e) => setProduct(e.target.value)} />
         <Products products={products} />
     </div>
   )

@@ -22,6 +22,14 @@ function App() {
     setLikedProducts(likedCopy);
   }
 
+  function removeLiked(idToRemove) {
+    const likedCopy = [...likedProducts];
+
+    const result = likedCopy.filter(item => item.id !== idToRemove);
+
+    setLikedProducts(result);
+  }
+
   async function getAllProducts() {
     try {
       const response = await fetch(product ? `https://dummyjson.com/products/search?q=${product}` : 'https://dummyjson.com/products');
@@ -59,7 +67,13 @@ function App() {
                   <h4>{product.title}</h4>
                   <p>${product.price}</p>
                   <div>
-                    <button onClick={() => addLiked(product.id)} id="likeBtn"> {likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' } </button>
+                    <button onClick={() => {
+                      if (!likedProducts.find(prod => prod.id === product.id)) {
+                        addLiked(product.id)
+                      } else {
+                        removeLiked(product.id);
+                      }
+                    }} id="likeBtn"> {likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' } </button>
                     <button id="addToCartBtn">Add to cart</button>
                   </div>
                 </div>
@@ -74,7 +88,7 @@ function App() {
                   <h4>{product.title}</h4>
                   <p>${product.price}</p>
                   <div>
-                    <button onClick={() => addLiked(product.id)} id="likeBtn">Like</button>
+                    <button onClick={() => removeLiked(product.id)} id="likeBtn">{likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' }</button>
                     <button id="addToCartBtn">Add to cart</button>
                   </div>
                 </div>

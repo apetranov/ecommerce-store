@@ -8,6 +8,15 @@ function App() {
   const [showLiked, setShowLiked] = useState(false);
   const [showAll, setShowAll] = useState(true);
   const [showCart, setShowCart] = useState(false);
+  const [cartTotal, setCartTotal] = useState(0);
+
+  useEffect(() => {
+    const total = cartProducts.reduce((sum, item) => {
+      return sum + item.price;
+    }, 0);
+
+    setCartTotal(total);
+  }, [cartProducts]);
 
   function addLiked(productId) {
     if (likedProducts.find(product => product.id === productId)) {
@@ -143,6 +152,7 @@ function App() {
         }
         {showCart && <div className='likedDiv'>
           <h1>Shopping cart</h1>
+          <h2>Total: ${cartTotal}</h2>
           {cartProducts.length > 0 ? <div className='productContainer'>
             {cartProducts.map((product) =>
               <div className='productDiv' key={product.id}>

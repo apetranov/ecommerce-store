@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const total = cartProducts.reduce((sum, item) => {
       return sum + item.price;
-    }, 0);
+    }, 0).toFixed(2);
 
     setCartTotal(total);
   }, [cartProducts]);
@@ -71,6 +71,10 @@ function App() {
     } catch (error) {
       console.log("Error:",error);
     }
+  }
+
+  function checkoutCart() {
+    setCartProducts([]);
   }
 
   useEffect(() => {
@@ -153,6 +157,7 @@ function App() {
         {showCart && <div className='likedDiv'>
           <h1>Shopping cart</h1>
           <h2>Total: ${cartTotal}</h2>
+          {cartProducts.length > 0 && <button id="checkoutCartBtn" onClick={checkoutCart}>Checkout</button>}
           {cartProducts.length > 0 ? <div className='productContainer'>
             {cartProducts.map((product) =>
               <div className='productDiv' key={product.id}>

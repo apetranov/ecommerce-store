@@ -167,3 +167,19 @@ input {
   flex-direction: column;
   gap: 1rem;
 }
+
+#checkoutCartBtn {
+  background: none;
+  border: 2px solid rgb(50, 130, 205);
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}
+#checkoutCartBtn:hover {
+  color: white;
+  background: rgb(50, 130, 205);
+  border: 2px solid rgb(50, 130, 205);
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}

@@ -89,17 +89,23 @@ function App() {
           setShowCart(false);
           setShowAll(true);
           setProduct("");
-        }}>All products</span>
+        }} style={showAll ? {
+          textDecoration: "underline"
+        } : {textDecoration: "none"}}>All products</span>
         <span onClick={() => {
           setShowLiked(true);
           setShowCart(false);
           setShowAll(false);
-        }}>Liked</span>
+        }} style={showLiked ? {
+          textDecoration: "underline"
+        } : {textDecoration: "none"}}>Liked</span>
         <span onClick={() => {
           setShowLiked(false);
           setShowCart(true);
           setShowAll(false);
-        }}>Shopping cart</span>
+        }} style={showCart ? {
+          textDecoration: "underline"
+        } : {textDecoration: "none"}}>Shopping cart</span>
       </div>
         {showAll && <div className='showAllDiv'>
           <input type="text" placeholder='Search product...' onChange={(e) => setProduct(e.target.value)} />
@@ -156,7 +162,7 @@ function App() {
         }
         {showCart && <div className='likedDiv'>
           <h1>Shopping cart</h1>
-          <h2>Total: ${cartTotal}</h2>
+          {cartTotal > 0 && <h2>Total: ${cartTotal}</h2>}
           {cartProducts.length > 0 && <button id="checkoutCartBtn" onClick={checkoutCart}>Checkout</button>}
           {cartProducts.length > 0 ? <div className='productContainer'>
             {cartProducts.map((product) =>

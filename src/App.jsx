@@ -1,5 +1,10 @@
 import { useState, useEffect, use } from 'react'
 import './App.css'
+import NavBar from './components/NavBar';
+import SearchField from './components/SearchField';
+import Products from './components/Products';
+import LikedProducts from './components/LikedProducts';
+import ShoppingCart from './components/ShoppingCart';
 function App() {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState("");
@@ -83,80 +88,37 @@ function App() {
 
   return (
     <div className='main-div lato-regular'>
-      <div className='navbar'>
-        <span onClick={() => {
-          setShowLiked(false);
-          setShowCart(false);
-          setShowAll(true);
-          setProduct("");
-        }} style={showAll ? {
-          textDecoration: "underline"
-        } : {textDecoration: "none"}}>All products</span>
-        <span onClick={() => {
-          setShowLiked(true);
-          setShowCart(false);
-          setShowAll(false);
-        }} style={showLiked ? {
-          textDecoration: "underline"
-        } : {textDecoration: "none"}}>Liked</span>
-        <span onClick={() => {
-          setShowLiked(false);
-          setShowCart(true);
-          setShowAll(false);
-        }} style={showCart ? {
-          textDecoration: "underline"
-        } : {textDecoration: "none"}}>Shopping cart</span>
-      </div>
+        <NavBar setShowLiked={setShowLiked}
+          setShowCart={setShowCart}
+          setShowAll={setShowAll}
+          setProduct={setProduct}
+          showAll={showAll}
+          showLiked={showLiked}
+          showCart={showCart} />
         {showAll && <div className='showAllDiv'>
-          <input type="text" placeholder='Search product...' onChange={(e) => setProduct(e.target.value)} />
-          <div className='productContainer'>
-          {products.map((product) =>
-              <div className='productDiv' key={product.id}>
-                  <img src={`${product.thumbnail}`} alt="" />
-                  <h4>{product.title}</h4>
-                  <p>${product.price}</p>
-                  <div>
-                    <button onClick={() => {
-                      if (!likedProducts.find(prod => prod.id === product.id)) {
-                        addLiked(product.id)
-                      } else {
-                        removeLiked(product.id);
-                      }
-                    }} id="likeBtn"> {likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' } </button>
-                    <button id="addToCartBtn"  onClick={() => {
-                      if (!cartProducts.find(prod => prod.id === product.id)) {
-                        addToCart(product.id)
-                      } else {
-                        removeFromCart(product.id);
-                      }
-                    }}>{cartProducts.find(prod => prod.id === product.id) ? 'Remove from cart' : 'Add to cart' }</button>
-                  </div>
-                </div>
-            )}
-        </div>
+          <SearchField setProduct={setProduct} />
+          <Products 
+            products={products} 
+            likedProducts={likedProducts}
+            cartProducts={cartProducts}
+            addLiked={addLiked}
+            removeLiked={removeLiked}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+          />
         </div>}
         {showLiked && <div className='likedDiv'>
           <h1>Liked products</h1>
-          {likedProducts.length > 0 ? <div className='productContainer'>
-            {likedProducts.map((product) =>
-              <div className='productDiv' key={product.id}>
-                  <img src={`${product.thumbnail}`} alt="" />
-                  <h4>{product.title}</h4>
-                  <p>${product.price}</p>
-                  <div>
-                    <button onClick={() => removeLiked(product.id)} id="likeBtn">{likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' }</button>
-                    <button id="addToCartBtn" onClick={() => {
-                      if (!cartProducts.find(prod => prod.id === product.id)) {
-                        addToCart(product.id)
-                      } else {
-                        removeFromCart(product.id);
-                      }
-                    }}>{cartProducts.find(prod => prod.id === product.id) ? 'Remove from cart' : 'Add to cart' }</button>
-                  </div>
-                </div>
-            )}
-          </div> : <h2>No liked products...</h2>}
-            
+          {likedProducts.length > 0 ? 
+          <LikedProducts 
+            likedProducts={likedProducts} 
+            addLiked={addLiked}
+            removeLiked={removeLiked}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+            cartProducts={cartProducts}
+          /> 
+          : <h2>No liked products...</h2>}
         </div>
           
         }
@@ -164,25 +126,17 @@ function App() {
           <h1>Shopping cart</h1>
           {cartTotal > 0 && <h2>Total: ${cartTotal}</h2>}
           {cartProducts.length > 0 && <button id="checkoutCartBtn" onClick={checkoutCart}>Checkout</button>}
-          {cartProducts.length > 0 ? <div className='productContainer'>
-            {cartProducts.map((product) =>
-              <div className='productDiv' key={product.id}>
-                  <img src={`${product.thumbnail}`} alt="" />
-                  <h4>{product.title}</h4>
-                  <p>${product.price}</p>
-                  <div>
-                    <button onClick={() => {
-                      if (!likedProducts.find(prod => prod.id === product.id)) {
-                        addLiked(product.id)
-                      } else {
-                        removeLiked(product.id);
-                      }
-                    }} id="likeBtn">{likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' }</button>
-                    <button onClick={() => removeFromCart(product.id)} id="addToCartBtn">{cartProducts.find(prod => prod.id === product.id) ? 'Remove from cart' : 'Add to cart' }</button>
-                  </div>
-                </div>
-            )}
-          </div> : <h2>Cart is empty...</h2>}
+          {cartProducts.length > 0 ? 
+          
+          <ShoppingCart 
+          cartProducts={cartProducts}
+          likedProducts={likedProducts} 
+          addLiked={addLiked}
+          removeLiked={removeLiked}
+          removeFromCart={removeFromCart}
+          /> 
+          
+          : <h2>Cart is empty...</h2>}
             
         </div>
           

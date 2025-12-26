@@ -184,3 +184,18 @@ input {
   font-weight: bold;
   cursor: pointer;
 }
+
+#backHome {
+  background: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+#backHome:hover {
+  cursor: pointer;
+  background: rgb(0, 228, 0);
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Products({ products, likedProducts, cartProducts, addLiked, removeLiked,
   addToCart, removeFromCart
@@ -10,7 +11,11 @@ function Products({ products, likedProducts, cartProducts, addLiked, removeLiked
                   <img src={`${product.thumbnail}`} alt="" />
                   <h4>{product.title}</h4>
                   <p>${product.price}</p>
-                  <div>
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "1rem"
+                  }}>
                     <button onClick={() => {
                       if (!likedProducts.find(prod => prod.id === product.id)) {
                         addLiked(product.id)
@@ -25,6 +30,9 @@ function Products({ products, likedProducts, cartProducts, addLiked, removeLiked
                         removeFromCart(product.id);
                       }
                     }}>{cartProducts.find(prod => prod.id === product.id) ? 'Remove from cart' : 'Add to cart' }</button>
+                    <Link to={`product/${product.id}`}>
+                      <button>Show details</button>
+                    </Link>
                   </div>
                 </div>
             )}

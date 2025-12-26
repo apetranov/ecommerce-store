@@ -175,6 +175,7 @@ input {
   padding: 0.5rem 2rem;
   font-weight: bold;
 }
+
 #checkoutCartBtn:hover {
   color: white;
   background: rgb(50, 130, 205);
@@ -198,4 +199,19 @@ input {
 #backHome:hover {
   cursor: pointer;
   background: rgb(0, 228, 0);
+}
+
+#showDetails {
+  background: none;
+  border: 1px solid rgb(50, 151, 205);
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}
+
+#showDetails:hover {
+  background: rgb(50, 151, 205);
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
 }

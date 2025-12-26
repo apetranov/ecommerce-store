@@ -31,7 +31,7 @@ function Products({ products, likedProducts, cartProducts, addLiked, removeLiked
                       }
                     }}>{cartProducts.find(prod => prod.id === product.id) ? 'Remove from cart' : 'Add to cart' }</button>
                     <Link to={`product/${product.id}`}>
-                      <button>Show details</button>
+                      <button id="showDetails">Show details</button>
                     </Link>
                   </div>
                 </div>

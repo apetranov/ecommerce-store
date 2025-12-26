@@ -15,6 +15,7 @@ function NotFoundPage() {
                 height: "100vh"
             }
         }
+        className='lato-regular'
     >
         <h1>This page does not exist 😞</h1>
         <Link to={"/"}>

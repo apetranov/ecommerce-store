@@ -10,7 +10,13 @@ function LikedProducts({ likedProducts, removeLiked, cartProducts,
                 <img src={`${product.thumbnail}`} alt="" />
                 <h4>{product.title}</h4>
                 <p>${product.price}</p>
-                <div>
+                <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "1rem",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}>
                 <button onClick={() => removeLiked(product.id)} id="likeBtn">{likedProducts.find(prod => prod.id === product.id) ? 'Unlike' : 'Like' }</button>
                 <button id="addToCartBtn" onClick={() => {
                     if (!cartProducts.find(prod => prod.id === product.id)) {

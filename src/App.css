@@ -215,3 +215,28 @@ input {
   cursor: pointer;
   color: white;
 }
+
+.product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+}
+
+.product img {
+  max-width: 30%;
+}
+
+@media (max-width:  756px) {
+  .product img {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 468px) {
+  .product img {
+    max-width: 70%;
+  }
+}

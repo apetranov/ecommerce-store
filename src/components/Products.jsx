@@ -14,7 +14,9 @@ function Products({ products, likedProducts, cartProducts, addLiked, removeLiked
                   <div style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: "1rem"
+                    gap: "1rem",
+                    justifyContent: "center",
+                    alignItems: "center"
                   }}>
                     <button onClick={() => {
                       if (!likedProducts.find(prod => prod.id === product.id)) {

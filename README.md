@@ -26,11 +26,11 @@ And finally I added the product details page feature.
 
 # 🤔 What I learned
 
-<h2>React Router 🚶</h2>
-I learned how to make dynamic routes using React Router, Link and useParams().
+<h3>React Router 🚶</h3>
+- I learned how to make dynamic routes using React Router, Link and useParams().
 
-<h2>Breaking project down into components ⛓️‍💥</h2>
-Maybe not the most efficient way of doing it but I did break down the project into different React components, making the code easier to debug and maintain in the long run.
+<h3>Breaking project down into components ⛓️‍💥</h3>
+- Maybe not the most efficient way of doing it but I did break down the project into different React components, making the code easier to debug and maintain in the long run.
 
 # 🍿 Video demo
 https://github.com/user-attachments/assets/5013351a-d191-4b47-9fa7-de3fd77eb9d1

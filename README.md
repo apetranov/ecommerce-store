@@ -30,5 +30,5 @@ And finally I added the product details page feature.
 I learned how to make dynamic routes using React router, Link and useParams().
 
 <h2>Breaking project down into components ⛓️‍💥</h2>
-Maybe not the most efficient way of doing it but I did break down the project into different React components, making the code easier to debug and maintain in the long term.
+Maybe not the most efficient way of doing it but I did break down the project into different React components, making the code easier to debug and maintain in the long run.
 

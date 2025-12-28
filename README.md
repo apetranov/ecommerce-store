@@ -9,7 +9,7 @@ An ecommerce store which uses DummyJSON API to fetch products.
 # 🚀 Features
 - Searching for product
 - Liking product
-- Adding product to shpping cart
+- Adding product to shopping cart
 - Viewing product details
 - Emptying shopping cart (Checkout)
 - Not found page

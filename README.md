@@ -1,16 +1,36 @@
-# React + Vite
+# 🛒 Ecommerce store
+An ecommerce store which uses DummyJSON API to fetch products.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🤖 Technologies
+- React
+- JavaScript
+- CSS
 
-Currently, two official plugins are available:
+# 🚀 Features
+- Searching for product
+- Liking product
+- Adding product to shopping cart
+- Viewing product details
+- Emptying shopping cart (Checkout)
+- Unliking product
+- Removing product from shopping cart
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🔨 The process
+The first thing I did was fetch the products for the home page. 
 
-## React Compiler
+Then I added the liking products feature and the shopping cart.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+After I added the search product feature.
 
-## Expanding the ESLint configuration
+And finally I added the product details page feature.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 🤔 What I learned
+
+<h3>React Router 🚶</h3>
+I learned how to make dynamic routes using React Router, Link and useParams().
+
+<h3>Breaking project down into components ⛓️‍💥</h3>
+Maybe not the most efficient way of doing it but I did break down the project into different React components, making the code easier to debug and maintain in the long run.
+
+# 🍿 Video demo
+https://github.com/user-attachments/assets/5013351a-d191-4b47-9fa7-de3fd77eb9d1
